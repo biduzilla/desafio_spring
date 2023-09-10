@@ -1,12 +1,14 @@
 package com.ricky.desafio_spring.service.impl;
 
 import com.ricky.desafio_spring.dto.ModeloDto;
+import com.ricky.desafio_spring.entity.Modelo;
 import com.ricky.desafio_spring.repository.ModeloRepository;
 import com.ricky.desafio_spring.service.ModeloService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -14,13 +16,8 @@ public class ModeloServiceImpl implements ModeloService {
 
     private final ModeloRepository modeloRepository;
 
-    public ModeloServiceImpl(ModeloRepository modeloRepository) {
-        this.modeloRepository = modeloRepository;
-    }
-
-
     @Override
-    public void cadastrarModelo(ModeloDto modelo) {
+    public void cadastrarModelo(ModeloDto modelo, String idMarca) {
 
     }
 

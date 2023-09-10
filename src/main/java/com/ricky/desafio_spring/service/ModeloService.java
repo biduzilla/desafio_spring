@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ModeloService {
 
-    void cadastrarModelo(ModeloDto modelo);
+    void cadastrarModelo(ModeloDto modelo, String idMarca);
 
     List<ModeloDto> getAllModelos();
 
