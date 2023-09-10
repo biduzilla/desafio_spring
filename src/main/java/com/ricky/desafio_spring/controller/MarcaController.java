@@ -35,13 +35,13 @@ public class MarcaController {
     }
 
     @PutMapping("/update_marca/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public void updateMarca(@RequestBody @Valid MarcaDto marcaDto, @PathVariable String id) {
         marcaService.updateMarca(marcaDto, id);
     }
 
     @DeleteMapping("/delete_marca/{id}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.OK)
     public void deleteMarcaById(@PathVariable String id) {
         marcaService.deleteMarcaById(id);
     }
