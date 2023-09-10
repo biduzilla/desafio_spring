@@ -199,7 +199,7 @@ Status 200 - OK
 
 Método: GET
 
-endpoint: api/modelo//get_all_modelos_marca/{idMarca}
+endpoint: api/modelo/get_all_modelos_marca/{idMarca}
 
 #Response
 []
