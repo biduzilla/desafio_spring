@@ -15,13 +15,14 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class MarcaSerciceImpl implements MarcaService {
+public class MarcaServiceImpl implements MarcaService {
     private final MarcaRepository marcaRepository;
 
     @Override
     public void cadastrarMarca(MarcaDto marcaDto) {
 
-        if (marcaRepository.existsByCodDenatran(marcaDto.getCodDenatran())) {
+        if (marcaRepository.existsByCodDenatran(marcaDto.getCodDenatran()) ||
+                marcaRepository.existsByNome(marcaDto.getNome())) {
             throw new MarcaJaExiste();
         }
 
@@ -45,6 +46,7 @@ public class MarcaSerciceImpl implements MarcaService {
         Marca marca = marcaRepository.findById(id).orElseThrow(MarcaNaoEncontrada::new);
         return MarcaDto.builder()
                 .nome(marca.getNome())
+                .id(marca.getId())
                 .codDenatran(marca.getCodDenatran())
                 .ativo(marca.getAtivo())
                 .modelos(marca.getModelos())
@@ -53,7 +55,7 @@ public class MarcaSerciceImpl implements MarcaService {
 
     @Override
     public void updateMarca(MarcaDto marcaDto, String id) {
-        if (marcaRepository.existsByCodDenatran(marcaDto.getCodDenatran()) || marcaRepository.existsByNome(marcaDto.getNome())) {
+        if (marcaRepository.existsByNome(marcaDto.getNome())) {
             throw new MarcaJaExiste();
         }
 
@@ -78,6 +80,7 @@ public class MarcaSerciceImpl implements MarcaService {
         return marcas.stream().map(
                 marca -> {
                     return MarcaDto.builder()
+                            .id(marca.getId())
                             .modelos(marca.getModelos())
                             .ativo(marca.getAtivo())
                             .nome(marca.getNome())

@@ -3,6 +3,8 @@ package com.ricky.desafio_spring.controller;
 import com.ricky.desafio_spring.error.ApiError;
 import com.ricky.desafio_spring.exception.MarcaJaExiste;
 import com.ricky.desafio_spring.exception.MarcaNaoEncontrada;
+import com.ricky.desafio_spring.exception.ModeloJaExiste;
+import com.ricky.desafio_spring.exception.ModeloNaoEncontrado;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -25,6 +27,18 @@ public class ApplicationControllerAdvice {
     @ExceptionHandler(MarcaNaoEncontrada.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleMarcaNaoEncontrada(MarcaNaoEncontrada ex) {
+        return new ApiError(ex.getMessage());
+    }
+
+    @ExceptionHandler(ModeloNaoEncontrado.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiError handleModeloNaoEncontrado(ModeloNaoEncontrado ex) {
+        return new ApiError(ex.getMessage());
+    }
+
+    @ExceptionHandler(ModeloJaExiste.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiError handleModeloJaExiste(ModeloJaExiste ex) {
         return new ApiError(ex.getMessage());
     }
 

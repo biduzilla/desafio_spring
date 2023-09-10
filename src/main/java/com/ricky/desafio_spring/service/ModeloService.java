@@ -10,7 +10,7 @@ public interface ModeloService {
 
     List<ModeloDto> getAllModelos();
 
-    List<ModeloDto> getAllModelosByMarca(String marca);
+    List<ModeloDto> getAllModelosByMarca(String idMarca);
 
     ModeloDto getModeloById(String id);
 
