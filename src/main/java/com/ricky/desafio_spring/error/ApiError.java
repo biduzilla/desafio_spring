@@ -1,11 +1,13 @@
 package com.ricky.desafio_spring.error;
 
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
 public class ApiError {
     @Getter
     private List<String> error;

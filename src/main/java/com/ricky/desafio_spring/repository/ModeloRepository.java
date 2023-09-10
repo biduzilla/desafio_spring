@@ -13,4 +13,5 @@ public interface ModeloRepository extends JpaRepository<Modelo, String> {
     Optional<List<Modelo>> findByAno(Integer ano);
 
     Boolean existsByNome(String nome);
+    Boolean existsByNomeAndId(String nome, String id);
 }

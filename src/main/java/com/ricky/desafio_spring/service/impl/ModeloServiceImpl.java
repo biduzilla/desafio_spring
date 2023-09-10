@@ -1,5 +1,6 @@
 package com.ricky.desafio_spring.service.impl;
 
+import com.ricky.desafio_spring.Utils;
 import com.ricky.desafio_spring.dto.ModeloDto;
 import com.ricky.desafio_spring.entity.Marca;
 import com.ricky.desafio_spring.entity.Modelo;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static com.ricky.desafio_spring.Utils.modeloToModeloDto;
 
 @Service
 @RequiredArgsConstructor
@@ -65,10 +68,6 @@ public class ModeloServiceImpl implements ModeloService {
 
     @Override
     public void updateModelo(ModeloDto modelo, String id) {
-        if (modeloRepository.existsByNome(modelo.getNome())) {
-            throw new ModeloJaExiste();
-        }
-
         Modelo modeloRecuperado = modeloRepository.findById(id).orElseThrow(ModeloNaoEncontrado::new);
 
         modeloRecuperado.setAno(modelo.getAno());
@@ -87,13 +86,13 @@ public class ModeloServiceImpl implements ModeloService {
         }
     }
 
-    private List<ModeloDto> modeloToModeloDto(List<Modelo> modelos) {
-        return modelos.stream().map(modelo -> {
-            return ModeloDto.builder()
-                    .id(modelo.getId())
-                    .ano(modelo.getAno())
-                    .nome(modelo.getNome())
-                    .build();
-        }).collect(Collectors.toList());
-    }
+//    private List<ModeloDto> modeloToModeloDto(List<Modelo> modelos) {
+//        return modelos.stream().map(modelo -> {
+//            return ModeloDto.builder()
+//                    .id(modelo.getId())
+//                    .ano(modelo.getAno())
+//                    .nome(modelo.getNome())
+//                    .build();
+//        }).collect(Collectors.toList());
+//    }
 }

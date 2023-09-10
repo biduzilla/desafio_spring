@@ -1,7 +1,9 @@
 package com.ricky.desafio_spring.service.impl;
 
 import com.ricky.desafio_spring.dto.MarcaDto;
+import com.ricky.desafio_spring.dto.ModeloDto;
 import com.ricky.desafio_spring.entity.Marca;
+import com.ricky.desafio_spring.entity.Modelo;
 import com.ricky.desafio_spring.exception.MarcaJaExiste;
 import com.ricky.desafio_spring.exception.MarcaNaoEncontrada;
 import com.ricky.desafio_spring.repository.MarcaRepository;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import static com.ricky.desafio_spring.Utils.modeloToModeloDto;
 
 @Service
 @RequiredArgsConstructor
@@ -49,7 +53,7 @@ public class MarcaServiceImpl implements MarcaService {
                 .id(marca.getId())
                 .codDenatran(marca.getCodDenatran())
                 .ativo(marca.getAtivo())
-                .modelos(marca.getModelos())
+                .modelos(modeloToModeloDto(marca.getModelos()))
                 .build();
     }
 
@@ -81,12 +85,13 @@ public class MarcaServiceImpl implements MarcaService {
                 marca -> {
                     return MarcaDto.builder()
                             .id(marca.getId())
-                            .modelos(marca.getModelos())
                             .ativo(marca.getAtivo())
                             .nome(marca.getNome())
                             .codDenatran(marca.getCodDenatran())
+                            .modelos(modeloToModeloDto(marca.getModelos()))
                             .build();
                 }
         ).collect(Collectors.toList());
     }
+
 }

@@ -23,5 +23,5 @@ public class MarcaDto {
     @NotNull(message = "{campo.ativo.obrigatorio}")
     private Boolean ativo;
 
-    private List<Modelo> modelos;
+    private List<ModeloDto> modelos;
 }
