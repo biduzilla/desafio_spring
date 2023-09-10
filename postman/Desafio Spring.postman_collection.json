@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "7d0735f0-b5da-4c3e-b6d3-d20d53016b71",
+		"name": "Desafio Spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MARCA - cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Marca 1\",\r\n    \"codDenatran\":\"12345\",\r\n    \"ativo\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/marca/cadastrar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"marca",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MARCA - getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/marca/all_marcas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"marca",
+						"all_marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MARCA - getById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/marca/get_marca/b9135c15-d57c-418d-a356-ad79efbea8eb",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"marca",
+						"get_marca",
+						"b9135c15-d57c-418d-a356-ad79efbea8eb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MARCA - update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Marca 1 Update\",\r\n    \"codDenatran\":\"123458\",\r\n    \"ativo\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/marca/update_marca/b9135c15-d57c-418d-a356-ad79efbea8eb",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"marca",
+						"update_marca",
+						"b9135c15-d57c-418d-a356-ad79efbea8eb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MARCA - delete marca",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/marca/delete_marca/d215cc53-8160-4d71-a719-28eecd796534",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"marca",
+						"delete_marca",
+						"d215cc53-8160-4d71-a719-28eecd796534"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - cadastrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"modelo 1\",\r\n    \"ano\":1985,\r\n    \"ativo\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/modelo/cadastrar/dbbf22bf-abe6-42b2-a300-aa2e9766df6c",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"cadastrar",
+						"dbbf22bf-abe6-42b2-a300-aa2e9766df6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - get all modelos by marca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/modelo/get_all_modelos_marca/dbbf22bf-abe6-42b2-a300-aa2e9766df6c",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"get_all_modelos_marca",
+						"dbbf22bf-abe6-42b2-a300-aa2e9766df6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - get all modelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/modelo/get_all_modelos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"get_all_modelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - modelo by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/modelo/get_modelo/00d83c74-1798-49b6-b260-bab745c35c28",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"get_modelo",
+						"00d83c74-1798-49b6-b260-bab745c35c28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - update modelo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"modelo 2 update\",\r\n    \"ano\":1985,\r\n    \"ativo\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/modelo/update_modelo/164f3030-f0aa-40ca-991d-91f74bba0391",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"update_modelo",
+						"164f3030-f0aa-40ca-991d-91f74bba0391"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MODELO - delete modelo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/modelo/delete_modelo/164f3030-f0aa-40ca-991d-91f74bba0391",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo",
+						"delete_modelo",
+						"164f3030-f0aa-40ca-991d-91f74bba0391"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

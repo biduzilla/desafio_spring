@@ -4,6 +4,55 @@
 
 Projeto criado para criar webservice utilizando Spring Boot e Docker.
 
+## Execução do projeto
+### Pré-requisitos
+
+ - Docker instalado.
+
+ - Uma IDE compatível com projetos Spring, como o IntelliJ IDEA ou o Eclipse.
+
+### Configurando o Banco de Dados
+No diretório /docker, você encontrará o arquivo mysql-docker-compose.yml, que cria o contêiner MySQL e uma interface para visualização dos dados do banco de dados.
+
+Execute o seguinte comando no seu terminal para criar o contêiner MySQL:
+```bash
+docker-compose -f docker/mysql-docker-compose.yml up -d
+```
+Verifique se o contêiner foi criado com sucesso.
+
+Acesse a interface de visualização do banco de dados no seu navegador, que normalmente estará disponível em http://localhost:8001. Use as credenciais nome de usuário: root, senha: root para fazer login.
+
+
+### Criando as Tabelas do Banco de Dados
+Você pode criar as tabelas do banco de dados executando o script SQL localizado em diretório/sq, ou criando um novo script. Aqui estão as etapas para executar o script fornecido:
+
+Na interface, clique em "Executar SQL" ou algo semelhante e cole o seguinte script SQL para criar as tabelas:
+```bash
+use desafio_db;
+
+create table tab_marca (
+    marca_id varchar(255) not null,
+    marca_ativo boolean,
+    marca_cod_denatran varchar(255),
+    marca_nome varchar(255),
+    primary key (marca_id)
+);
+
+create table tab_modelo (
+    modelo_id varchar(255) not null,
+    modelo_ano integer,
+    modelo_ativo boolean,
+    modelo_nome varchar(255),
+    ref_marca varchar(255),
+    primary key (modelo_id),
+    constraint fk_tab_modelo_marca foreign key(ref_marca) references tab_marca(marca_id)
+);
+```
+
+Execute o script para criar as tabelas no banco de dados desafio_db.
+
+###Executando o Projeto Spring Boot 
+Seu projeto Spring Boot está pronto para ser executado. Você pode encontrar os endpoints no README ou importar o arquivo do Postman localizado em /postman.
 ## Tecnologias Utilizadas
 
 ### Back end
@@ -195,7 +244,7 @@ Status 200 - OK
 ```bash
 #Apagar modelo por Id
 
-Método: PUT
+Método: DELETE
 
 endpoint: api/modelo/delete_modelo/{id}
 
