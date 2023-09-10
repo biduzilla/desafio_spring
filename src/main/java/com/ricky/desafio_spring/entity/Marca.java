@@ -27,6 +27,6 @@ public class Marca {
     @Column(name = "marca_ativo")
     private Boolean ativo;
 
-    @OneToMany(fetch=FetchType.LAZY,mappedBy = "marca")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "marca", cascade = CascadeType.ALL)
     private List<Modelo> modelos;
 }

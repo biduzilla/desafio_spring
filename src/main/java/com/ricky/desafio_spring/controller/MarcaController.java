@@ -41,7 +41,7 @@ public class MarcaController {
     }
 
     @DeleteMapping("/delete_marca/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMarcaById(@PathVariable String id) {
         marcaService.deleteMarcaById(id);
     }

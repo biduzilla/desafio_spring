@@ -47,7 +47,7 @@ public class ModeloController {
     }
 
     @DeleteMapping("/delete_modelo/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteModeloById(@PathVariable String id){
         modeloService.deleteModeloById(id);
     }

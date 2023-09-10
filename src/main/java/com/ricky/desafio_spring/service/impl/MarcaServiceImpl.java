@@ -1,9 +1,8 @@
 package com.ricky.desafio_spring.service.impl;
 
 import com.ricky.desafio_spring.dto.MarcaDto;
-import com.ricky.desafio_spring.dto.ModeloDto;
 import com.ricky.desafio_spring.entity.Marca;
-import com.ricky.desafio_spring.entity.Modelo;
+import com.ricky.desafio_spring.exception.CodDenatranJaExiste;
 import com.ricky.desafio_spring.exception.MarcaJaExiste;
 import com.ricky.desafio_spring.exception.MarcaNaoEncontrada;
 import com.ricky.desafio_spring.repository.MarcaRepository;
@@ -25,9 +24,12 @@ public class MarcaServiceImpl implements MarcaService {
     @Override
     public void cadastrarMarca(MarcaDto marcaDto) {
 
-        if (marcaRepository.existsByCodDenatran(marcaDto.getCodDenatran()) ||
-                marcaRepository.existsByNome(marcaDto.getNome())) {
+        if (marcaRepository.existsByNome(marcaDto.getNome())) {
             throw new MarcaJaExiste();
+        }
+
+        if (marcaRepository.existsByCodDenatran(marcaDto.getCodDenatran())) {
+            throw new CodDenatranJaExiste();
         }
 
         Marca marca = Marca.builder()

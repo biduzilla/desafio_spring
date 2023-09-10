@@ -1,7 +1,7 @@
 package com.ricky.desafio_spring.exception;
 
-public class MarcaJaExiste extends RuntimeException{
-    public MarcaJaExiste(){
-        super("Marca já existe");
+public class CodDenatranJaExiste extends RuntimeException{
+    public CodDenatranJaExiste(){
+        super("Código Denatran já cadastrado");
     }
 }
